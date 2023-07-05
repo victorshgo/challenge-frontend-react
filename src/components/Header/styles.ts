@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
-  padding: 1.25rem 0;
+  padding: 1rem 0;
 
   display: flex;
   justify-content: center;
@@ -9,6 +9,6 @@ export const Header = styled.header`
   background-color: var(--gray-100);
 
   > img {
-    height: 2.5rem;
+    height: 3rem;
   }
 `;

@@ -1,4 +1,4 @@
-import { ShoppingCart } from "phosphor-react";
+import { Pencil, ShoppingCart } from "phosphor-react";
 
 import { Button } from "@/components/Button";
 import { ProductTypes } from "@/types/products";
@@ -9,6 +9,9 @@ export function Products(props: ProductTypes) {
   return (
     <S.Container>
       <img src={props.image} alt={props.name} />
+      <S.Edit>
+        <Pencil size={22} />
+      </S.Edit>
       <S.ProductDescription>
         <p className="product-name">{props.name}</p>
         <p className="product-description">{props.description}</p>
@@ -17,7 +20,7 @@ export function Products(props: ProductTypes) {
       <S.ProductFooter>
         <Button>
           <ShoppingCart size={22} />
-          &nbsp;Comprar
+          &nbsp;Add to cart
         </Button>
       </S.ProductFooter>
     </S.Container>

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   overflow: hidden;
+  position: relative;
 
   background: var(--gray-100);
   border-radius: 8px;
@@ -14,6 +15,26 @@ export const Container = styled.div`
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const Edit = styled.div`
+  width: fit-content;
+  padding: 0.25rem;
+
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  color: var(--white);
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.5);
   }
 `;
 

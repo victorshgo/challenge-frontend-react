@@ -5,7 +5,7 @@ export const Container = styled.div``;
 export const Content = styled.main`
   max-width: 70rem;
 
-  margin: 2rem auto;
+  margin: 3rem auto 2rem auto;
   padding: 0 1rem;
 
   display: grid;

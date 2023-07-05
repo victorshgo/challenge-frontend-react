@@ -35,3 +35,7 @@ export const ProductDescription = styled.div`
     font-size: 1.25rem;
   }
 `;
+
+export const ProductFooter = styled.div`
+  padding: 0 1.5rem 2rem 1.5rem;
+`;

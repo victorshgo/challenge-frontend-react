@@ -13,3 +13,32 @@ export const Content = styled.main`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 `;
+
+export const AddProductButton = styled.div`
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+
+  background-color: var(--green);
+  border-radius: 50%;
+  color: var(--white);
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+`;
+
+export const Form = styled.form`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+
+  .adding-product-footer {
+    margin-top: 1rem;
+  }
+`;

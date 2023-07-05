@@ -28,7 +28,7 @@ export const Edit = styled.div`
   top: 0.5rem;
   right: 0.5rem;
 
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   color: var(--white);
   cursor: pointer;
@@ -59,4 +59,14 @@ export const ProductDescription = styled.div`
 
 export const ProductFooter = styled.div`
   padding: 0 1.5rem 2rem 1.5rem;
+`;
+
+export const Form = styled.form`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+
+  .adding-product-footer {
+    margin-top: 1rem;
+  }
 `;

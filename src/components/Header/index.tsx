@@ -1,6 +1,6 @@
-import * as S from "./styles";
-
 import logo from "@/assets/logo.webp";
+
+import * as S from "./styles";
 
 export function Header() {
   return (

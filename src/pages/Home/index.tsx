@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { Plus } from "phosphor-react";
+import { Plus, ShoppingCart } from "phosphor-react";
 
+import { CartProvider } from "@/context/CartContext";
 import { Header } from "@/components/Header";
 import { Products } from "@/components/Products";
 import { Modal } from "@/components/Modal";
@@ -22,31 +23,37 @@ export function Home() {
   const closeAddProduct = () => setAddProductOpen(false);
 
   return (
-    <S.Container>
-      <Header />
-      <S.Content>
-        {data?.products.map((product: ProductTypes) => (
-          <Products key={product.id} {...product} />
-        ))}
-      </S.Content>
-      <S.AddProductButton onClick={openAddProduct}>
-        <Plus size={32} />
-      </S.AddProductButton>
-      <Modal
-        open={addProductOpen}
-        title="Add product"
-        onClose={closeAddProduct}
-      >
-        <S.Form>
-          <Input placeholder="Name:" />
-          <Input placeholder="Description:" />
-          <Input placeholder="Amount:" />
-          <Input placeholder="URL Image:" type="url" />
-          <div className="adding-product-footer">
-            <Button>Create product</Button>
-          </div>
-        </S.Form>
-      </Modal>
-    </S.Container>
+    <CartProvider>
+      <S.Container>
+        <Header />
+        <S.Content>
+          {data?.products.map((product: ProductTypes) => (
+            <Products key={product.id} {...product} />
+          ))}
+        </S.Content>
+        <S.AddProductButton onClick={openAddProduct}>
+          <Plus size={32} />
+        </S.AddProductButton>
+        <S.CartButton>
+          <ShoppingCart size={32} />
+        </S.CartButton>
+
+        <Modal
+          open={addProductOpen}
+          title="Add product"
+          onClose={closeAddProduct}
+        >
+          <S.Form>
+            <Input placeholder="Name:" />
+            <Input placeholder="Description:" />
+            <Input placeholder="Amount:" />
+            <Input placeholder="URL Image:" type="url" />
+            <div className="adding-product-footer">
+              <Button>Create product</Button>
+            </div>
+          </S.Form>
+        </Modal>
+      </S.Container>
+    </CartProvider>
   );
 }

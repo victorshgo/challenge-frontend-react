@@ -1,19 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Pencil, ShoppingCart } from "phosphor-react";
 
+import { CartContext } from "@/context/CartContext";
 import { Button } from "@/components/Button";
 import { Modal } from "@/components/Modal";
 import { Input } from "@/components/Input";
-
 import { ProductTypes } from "@/types/products";
 
 import * as S from "./styles";
 
 export function Products(props: ProductTypes) {
+  const { addToCart } = useContext(CartContext);
   const [editProductOpen, setEditProductOpen] = useState(false);
 
   const openEditProduct = () => setEditProductOpen(true);
   const closeEditProduct = () => setEditProductOpen(false);
+
+  const handleAddToCart = () => addToCart(props);
 
   return (
     <S.Container>
@@ -27,7 +30,7 @@ export function Products(props: ProductTypes) {
         <p className="product-price">{props.amount}</p>
       </S.ProductDescription>
       <S.ProductFooter>
-        <Button>
+        <Button onClick={handleAddToCart}>
           <ShoppingCart size={22} />
           &nbsp;Add to cart
         </Button>

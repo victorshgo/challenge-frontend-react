@@ -4,10 +4,12 @@ import { useQueryClient } from "react-query";
 import { Pencil, ShoppingCart } from "phosphor-react";
 
 import { CartContext } from "@/context/CartContext";
+
 import { Alert } from "@/components/Alert";
 import { Button } from "@/components/Button";
-import { Modal } from "@/components/Modal";
 import { Input } from "@/components/Input";
+import { Modal } from "@/components/Modal";
+
 import { ProductTypes } from "@/types/products";
 
 import * as S from "./styles";

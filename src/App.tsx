@@ -1,6 +1,9 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 
+import { CartProvider } from "@/context/CartContext";
+
 import { Routes } from "@/services/routes";
+
 import { GlobalStyles } from "@/styles/global";
 
 export function App() {
@@ -8,8 +11,10 @@ export function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <GlobalStyles />
-      <Routes />
+      <CartProvider>
+        <GlobalStyles />
+        <Routes />
+      </CartProvider>
     </QueryClientProvider>
   );
 }

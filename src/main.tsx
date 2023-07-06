@@ -87,6 +87,11 @@ createServer({
       const data = JSON.parse(request.requestBody);
       return schema.create("product", data);
     });
+
+    this.patch("/products/:id", (schema, request) => {
+      const data = JSON.parse(request.requestBody);
+      return schema.db.products.update(data.id, data);
+    });
   },
 });
 

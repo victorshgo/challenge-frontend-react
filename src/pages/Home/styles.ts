@@ -1,4 +1,13 @@
+import { Container } from "@/components/Container";
+
 import styled from "styled-components";
+
+export const Home = styled(Container)`
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+`;
 
 export const AddProductButton = styled.div`
   padding: 1rem;

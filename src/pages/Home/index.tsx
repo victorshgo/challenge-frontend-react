@@ -1,14 +1,13 @@
 import { useContext, useState } from "react";
 import { useQuery } from "react-query";
 import { useForm } from "react-hook-form";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Plus, ShoppingCart } from "phosphor-react";
 
 import { CartContext } from "@/context/CartContext";
 
 import { Alert } from "@/components/Alert";
 import { Button } from "@/components/Button";
-import { Container } from "@/components/Container";
 import { Header } from "@/components/Header";
 import { Input } from "@/components/Input";
 import { Modal } from "@/components/Modal";
@@ -19,6 +18,7 @@ import { ProductTypes } from "@/types/products";
 import * as S from "./styles";
 
 export function Home() {
+  const navigate = useNavigate();
   const [addProductOpen, setAddProductOpen] = useState(false);
 
   const { products } = useContext(CartContext);
@@ -52,17 +52,17 @@ export function Home() {
       });
   });
 
-  const handleSeeCart = () => redirect("/cart");
+  const handleSeeCart = () => navigate("/cart");
 
   return (
     <div>
       <Header />
 
-      <Container>
+      <S.Home>
         {data?.products.map((product: ProductTypes) => (
           <Products key={product.id} {...product} />
         ))}
-      </Container>
+      </S.Home>
 
       <S.AddProductButton onClick={openAddProduct}>
         <Plus size={32} />

@@ -31,6 +31,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const decrease = (product: ProductTypes) => {
+    if (product.count === 1) {
+      return removeToCart(product);
+    }
+
     setProducts((previousState) =>
       previousState.map((el) =>
         el.id === product.id

@@ -35,25 +35,6 @@ export const AddProductButton = styled.div`
   }
 `;
 
-export const CartButton = styled.div`
-  padding: 1rem;
-
-  display: flex;
-  align-items: center;
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-
-  background-color: var(--green);
-  border-radius: 50%;
-  color: var(--white);
-  cursor: pointer;
-
-  &:hover {
-    filter: brightness(0.9);
-  }
-`;
-
 export const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr;

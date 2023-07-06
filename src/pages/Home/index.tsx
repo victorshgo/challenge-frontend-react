@@ -10,6 +10,7 @@ import { Modal } from "@/components/Modal";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { Alert } from "@/components/Alert";
+import { Cart } from "@/components/Cart";
 import { ProductTypes } from "@/types/products";
 
 import * as S from "./styles";
@@ -62,9 +63,7 @@ export function Home() {
           <Plus size={32} />
         </S.AddProductButton>
 
-        <S.CartButton>
-          <ShoppingCart size={32} />
-        </S.CartButton>
+        <Cart />
 
         <Modal
           open={addProductOpen}

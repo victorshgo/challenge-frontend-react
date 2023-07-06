@@ -1,6 +1,7 @@
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CurrencyDollar, ShoppingBagOpen } from "phosphor-react";
+import { CreditCard, CurrencyDollar, ShoppingBagOpen } from "phosphor-react";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 import { CartContext } from "@/context/CartContext";
 
@@ -11,15 +12,24 @@ import { Header } from "@/components/Header";
 import { ProductTypes } from "@/types/products";
 
 import * as S from "./styles";
+import { Modal } from "@/components/Modal";
 
 export function Cart() {
   const navigate = useNavigate();
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [isPaymentLoading, setPaymentLoading] = useState(false);
 
   const { products, increase, decrease } = useContext(CartContext);
 
   const handleBackToShop = () => navigate("/");
   const handleIncreaseProduct = (product: ProductTypes) => increase(product);
   const handleDecreaseProduct = (product: ProductTypes) => decrease(product);
+
+  const openCheckoutOpen = () => setCheckoutOpen(true);
+  const closeCheckoutOpen = () => setCheckoutOpen(false);
 
   const sumValues = useCallback(() => {
     let sum = 0;
@@ -59,7 +69,7 @@ export function Cart() {
                 <Button isOutlined onClick={handleBackToShop}>
                   Back to shop
                 </Button>
-                <Button>
+                <Button onClick={openCheckoutOpen}>
                   <CurrencyDollar size={20} />
                   &nbsp;Checkout
                 </Button>
@@ -73,6 +83,16 @@ export function Cart() {
             </S.Empty>
           )}
         </S.Card>
+
+        <Modal open={checkoutOpen} title="Checkout" onClose={closeCheckoutOpen}>
+          <S.CardBox>
+            <CardElement />
+          </S.CardBox>
+          <Button type="submit">
+            <CreditCard size={20} />
+            &nbsp;Pay
+          </Button>
+        </Modal>
       </Container>
     </div>
   );

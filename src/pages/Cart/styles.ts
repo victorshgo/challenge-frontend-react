@@ -82,6 +82,14 @@ export const ListFooter = styled.div`
   }
 `;
 
+export const CardBox = styled.div`
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+
+  background-color: var(--gray-300);
+  border-radius: 8px;
+`;
+
 export const Empty = styled.div`
   display: flex;
   align-items: center;
